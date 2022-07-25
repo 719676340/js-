@@ -19,5 +19,25 @@ function deepclone(obj){
     }
     return temp
 }
-var ans=deepclone(obj)
+// var ans=deepclone(obj)
 console.log(ans==obj)
+
+
+function deepclone1(obj){
+    if(typeof obj !='object'){
+        return obj
+    }
+    var temp=Array.isArray(obj)?[]:{}
+    for(let key in obj){
+        if(obj.hasOwnProperty(key)){
+            if(obj[key] && typeof obj[key] =='object'){
+                temp[key]=deepclone(obj[key])
+            }else{
+                temp[key]=obj[key]
+            }
+        }
+    }
+    return temp
+}
+var ans=deepclone1(obj)
+console.log(ans)

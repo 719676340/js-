@@ -22,3 +22,12 @@ agent.prototype.func=function(param){
 }
 A=new agent()
 A.func(1).func(2).func(3)
+
+
+function sum(...args) {
+    const f = (...rest) => sum(...args, ...rest);
+    f.valueOf = () => args.reduce((x, y) => x + y, 0);
+    return f;
+}
+
+console.log(sum(1)(3)(3).valueOf())

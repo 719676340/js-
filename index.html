@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div class="out">
+<body onload="draw();">
+    <!-- <div class="out">
         <div class="imgwrap">
             <img src="https://s1.ax1x.com/2022/06/21/jS7iUx.png" alt="">
         </div>
-    </div>
+    </div> -->
+    <canvas id="tutorial" width="150" height="150"></canvas>
 </body>
 <!-- <script src="./promiseajax.js"></script> -->
-<script src="./once.js"></script>
+<script src="./myinstanceof.js"></script>
 <script>
 // document.getElementById("container").addEventListener("touchend", hovertreeMove);
+function draw(){
+  var canvas = document.getElementById('tutorial');
+  if (canvas.getContext){
+    var ctx = canvas.getContext('2d');
+    // ctx.fillRect(25, 25, 100, 100);
+    // ctx.clearRect(45, 45, 60, 60);
+    // ctx.strokeRect(50, 50, 50, 50);
+    ctx.beginPath();
+  }
+}
 </script>
 <style>
+canvas { border: 1px solid black; }
 .out{
     /*地图(容器)显示大小*/
     width:800px;

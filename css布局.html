@@ -12,14 +12,19 @@
             <img src="https://s1.ax1x.com/2022/06/21/jS7iUx.png" alt="">
         </div>
     </div> -->
-    <!-- <div class="out">
-        <div class="box"></div>
-    </div> -->
-    <div class="line"></div>
+    <div class="parent" style="background-color: lightgrey;">
+        <div class="left" style="background-color: lightblue;">
+            <p>left</p>
+        </div>
+        <div class="right"  style="background-color: lightgreen;">
+            <p>right</p>
+            <p>right</p>
+        </div>        
+    </div>
     
 </body>
 <!-- <script src="./promiseajax.js"></script> -->
-<script src="./并行限制promise.js"></script>
+<script src="./mysleep_delay.js"></script>
 <script>
 // document.getElementById("container").addEventListener("touchend", hovertreeMove);
 </script>
@@ -37,17 +42,24 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+
     width: 0;
     height: 0;
     border-left: 15px solid pink;
     border-right: 15px solid yellow;
     border-bottom: 13.28px solid black;
 }
-.line{
-    width: 20%;
-  height: 0;
-  padding-top: 20%;
-  background: orange;
+.parent {
+  overflow: hidden;
+  zoom: 1;
+}
+.left {
+  float: left;
+  margin-right: 20px;
+}
+.right {
+  overflow: hidden;
+  zoom: 1;
 }
 </style>
 </html>

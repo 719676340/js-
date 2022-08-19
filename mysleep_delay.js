@@ -6,7 +6,10 @@ function mysleep(time){
 function mydelay(func,time,...args){
     return new Promise((reslove,reject)=>{
         setTimeout(()=>{
-            Promise.resolve(func(...args)).then(reslove).catch(reject)
+            Promise.resolve(func(...args)).then((res)=>{
+                console.log(res)
+                return res
+            }).catch(reject)
         },time)
     })
 }

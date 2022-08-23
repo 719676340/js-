@@ -29,20 +29,42 @@
 
 
 
-function add(){
-    const _args = [...arguments];
-    function fn() {
-      _args.push(...arguments);
-      if(arguments.length!=0){
-        return fn;
-      }else{
-        return _args.reduce((sum, cur) => sum + cur);
-      }
+// function add(){
+//     const _args = [...arguments];
+//     function fn() {
+//       _args.push(...arguments);
+//       if(arguments.length!=0){
+//         return fn;
+//       }else{
+//         return _args.reduce((sum, cur) => sum + cur);
+//       }
       
+//     }
+//     fn.toString = function() {
+//       return _args.reduce((sum, cur) => sum + cur);
+//     }
+//     return fn;
+// }
+// console.log(add(1)(2)(3)(4)())
+
+
+function curry(fn,...args){
+  var length=fn.length
+  var arg=args
+  console.log(arg)
+  return function(...rest){
+    arg.push(...rest)
+    if(arg.length>=length){
+      return fn.call(this,...arg)
+    }else{
+      console.log(arg)
+      return curry.call(this,fn,...arg)
     }
-    fn.toString = function() {
-      return _args.reduce((sum, cur) => sum + cur);
-    }
-    return fn;
+  }
 }
-console.log(add(1)(2)(3)(4)())
+function add(a,b,c){
+  return a+b+c
+}
+var fn=curry(add)
+// console.log(fn(1)(2))
+console.log(fn(1)(2)(3))
